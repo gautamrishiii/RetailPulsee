@@ -486,4 +486,4 @@ elif page == "Customer Segmentation":
         behavior using K-Means clustering.
         """
     )
-    # BY GAUTAM RISHI 
+    # BY GAUTAM RISHII
