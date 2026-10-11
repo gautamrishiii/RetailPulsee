@@ -1,0 +1,55 @@
+# RetailPulse – AI-Powered Customer Analytics & Demand Forecasting Platform
+
+RetailPulse is a retail analytics project that helps businesses analyze sales, customer behavior, demand patterns, and inventory.
+
+## Features
+
+- Sales and revenue analytics
+- Customer segmentation and RFM analysis
+- Demand forecasting visualizations
+- Inventory analytics
+- Interactive Streamlit dashboard
+- Docker deployment
+
+## Technology Stack
+
+- Python
+- Pandas and NumPy
+- Streamlit and Plotly
+- Docker
+- Git and GitHub
+
+## Dataset
+
+The project uses synthetic retail datasets. Large datasets are hosted on Hugging Face:
+
+https://huggingface.co/datasets/gautamrishiii/zidio-data
+
+## Run Locally
+
+Install dependencies from the project root:
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+Start the dashboard:
+
+```bash
+streamlit run dashboard/app.py
+```
+
+Open http://localhost:8501 in your browser.
+
+## Run with Docker
+
+```bash
+docker build -t retailpulse .
+docker run --rm -p 8501:8501 retailpulse
+```
+
+Docker Hub: https://hub.docker.com/r/gautamrishiii/retailpulse
+
+## Author
+
+Gautam Rishii
