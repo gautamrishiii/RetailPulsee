@@ -127,7 +127,7 @@ Start the dashboard:
 streamlit run dashboard/app.py
 ```
 
-Open http://localhost:8501 in your browser.
+Open http://localhost:8501/ in your browser.
 
 ## Run with Docker
 
@@ -142,7 +142,7 @@ Docker Hub: https://hub.docker.com/r/gautamrishiii/retailpulse
 
 Explore the deployed RetailPulse dashboard:
 
-**[🚀 Open RetailPulse Dashboard](https://retailpulse-latest.onrender.com)**
+**[🚀 Open RetailPulse Dashboard](https://retailpulse-latest.onrender.com/)**
 
 The live dashboard provides interactive sales and revenue analytics, customer segmentation, demand forecasting visualizations, and inventory analytics.
 
