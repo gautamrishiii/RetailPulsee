@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-
+from auth import initialize_database, require_login, logout
 # -----------------------------
 # Page configuration
 # -----------------------------
@@ -10,6 +10,19 @@ st.set_page_config(
     layout="wide"
 )
 
+initialize_database()
+
+user = require_login()
+
+if user is None:
+    st.stop()
+
+st.sidebar.caption(
+    f"Signed in as {user['username']} · {user['role']}"
+)
+
+if st.sidebar.button("Log out", use_container_width=True):
+    logout()
 # -----------------------------
 # Load dashboard data
 # -----------------------------

@@ -1,0 +1,17 @@
+
+# Local authentication files
+retailpulse_dev.db
+retailpulse_dev.db-shm
+retailpulse_dev.db-wal
+create_admin.py
+
+# Python cache files
+__pycache__/
+*.py[cod]
+# Environment secrets
+.env
+.env.*
+!.env.example
+
+# Backup files
+*.backup
