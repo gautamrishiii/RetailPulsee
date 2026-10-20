@@ -112,7 +112,7 @@ if user is None:
 st.sidebar.markdown("<div class='rp-eyebrow'>RETAIL INTELLIGENCE</div>", unsafe_allow_html=True)
 st.sidebar.markdown("<div style='font-size:1.45rem;font-weight:800;letter-spacing:-.04em;margin:.15rem 0 .5rem'>▰ RetailPulse</div>", unsafe_allow_html=True)
 st.sidebar.caption(f"Signed in as **{user['username']}** · {user['role']}")
-if st.sidebar.button("↪ Log out", use_container_width=True):
+if st.sidebar.button("↪ Log out", width="stretch"):
     write_audit(user["username"], "logout")
     logout()
 
@@ -228,7 +228,7 @@ def page_heading(title: str, subtitle: str, eyebrow: str = "RETAILPULSE ANALYTIC
 
 def show_inventory_table(frame: pd.DataFrame, limit: int | None = None) -> None:
     shown = frame.head(limit) if limit else frame
-    st.dataframe(shown, use_container_width=True, hide_index=True)
+    st.dataframe(shown, width="stretch", hide_index=True)
 
 
 def explain_metrics(items: list[tuple[str, str]]) -> None:
@@ -334,7 +334,7 @@ elif page == "Sales Analytics":
                     st.warning("No records exist for the selected date range.")
             with st.container(border=True):
                 st.subheader("Daily detail")
-                st.dataframe(data.sort_values("date", ascending=False), use_container_width=True, hide_index=True)
+                st.dataframe(data.sort_values("date", ascending=False), width="stretch", hide_index=True)
             st.caption("This view reports demand units from the forecast dataset. It does not estimate revenue or order counts because those transaction fields are not included in the dashboard CSVs.")
         else:
             st.warning("No valid dates were found in forecast history.")
@@ -378,7 +378,7 @@ elif page == "Product Explorer":
     m3.metric("Suggested replenishment units", f"{metric_if_column(view, 'store_recommended_order_qty'):,.0f}")
     if sort_col:
         view = view.sort_values(sort_col, ascending=(sort_col == "stock_on_hand"), na_position="last")
-    st.dataframe(view, use_container_width=True, hide_index=True)
+    st.dataframe(view, width="stretch", hide_index=True)
     st.caption("Tip: use this page to locate a product, check its stock, and review replenishment suggestions before making an order.")
 
 # -----------------------------------------------------------------------------
@@ -397,12 +397,12 @@ elif page == "Data Health Center":
     c2.metric("Total rows", f"{sum(len(frame) for frame in datasets.values()):,}")
     c3.metric("Missing cells", f"{sum(int(frame.isna().sum().sum()) for frame in datasets.values()):,}")
     st.subheader("Dataset status")
-    st.dataframe(summary, use_container_width=True, hide_index=True)
+    st.dataframe(summary, width="stretch", hide_index=True)
     selected_dataset = st.selectbox("Inspect a dataset", list(datasets.keys()), key="data_health_dataset")
     selected_frame = datasets[selected_dataset]
     st.subheader("Column-by-column check")
     column_summary = pd.DataFrame({"Column": selected_frame.columns, "Data type": [str(selected_frame[c].dtype) for c in selected_frame.columns], "Missing values": [int(selected_frame[c].isna().sum()) for c in selected_frame.columns], "Unique values": [int(selected_frame[c].nunique(dropna=True)) for c in selected_frame.columns]})
-    st.dataframe(column_summary, use_container_width=True, hide_index=True)
+    st.dataframe(column_summary, width="stretch", hide_index=True)
     st.download_button("Download dataset health report", summary.to_csv(index=False).encode("utf-8"), "retailpulse_data_health_report.csv", "text/csv")
     st.caption("This is a lightweight data check, not a guarantee that every value is correct. Investigate unusual counts and confirm column meanings before using data for business decisions.")
 
@@ -579,7 +579,7 @@ elif page == "Demand Forecasting":
             else:
                 st.info("Required future forecast columns are missing.")
     st.subheader("Forecast details")
-    st.dataframe(future_forecast, use_container_width=True, hide_index=True)
+    st.dataframe(future_forecast, width="stretch", hide_index=True)
     st.download_button("Download forecast CSV", future_forecast.to_csv(index=False).encode("utf-8"), "retailpulse_forecast.csv", "text/csv")
     st.caption("Forecast accuracy metrics are calculated from forecast_results.csv; they are not a guarantee of future performance.")
 
@@ -620,7 +620,7 @@ elif page == "Customer Segmentation":
             if col in rfm.columns:
                 agg[{"Recency": "Avg. recency", "Frequency": "Avg. frequency", "Monetary": "Avg. monetary value"}[col]] = (col, "mean")
         profile = rfm.groupby("Segment", dropna=False).agg(**agg).reset_index()
-        st.dataframe(profile.round(2), use_container_width=True, hide_index=True)
+        st.dataframe(profile.round(2), width="stretch", hide_index=True)
     with st.expander("What these segments mean"):
         st.write("Use high-value and frequent-customer groups for loyalty initiatives, and consider appropriate re-engagement campaigns for customers whose last purchase was longer ago. Confirm business definitions against the segmentation model used to generate the RFM dataset.")
     st.download_button("Download customer segments CSV", rfm.to_csv(index=False).encode("utf-8"), "retailpulse_customer_segments.csv", "text/csv")
@@ -639,7 +639,7 @@ elif page == "Admin & Audit Logs":
             user_frame = pd.DataFrame(rows)
         st.metric("Registered users", f"{len(user_frame):,}")
         if not user_frame.empty:
-            st.dataframe(user_frame, use_container_width=True, hide_index=True)
+            st.dataframe(user_frame, width="stretch", hide_index=True)
             st.caption("For safety, account creation and password resets remain in the existing authentication flow. This screen currently supports role changes and account deactivation.")
             choices = {f"{row['Username']} (ID {row['ID']})": int(row["ID"]) for _, row in user_frame.iterrows()}
             selected_label = st.selectbox("Select account", list(choices.keys()))
@@ -682,7 +682,7 @@ elif page == "Admin & Audit Logs":
         if log_frame.empty:
             st.info("No audit events have been recorded yet. Events are added as users log out or Admins change accounts.")
         else:
-            st.dataframe(log_frame, use_container_width=True, hide_index=True)
+            st.dataframe(log_frame, width="stretch", hide_index=True)
             st.download_button("Export audit logs CSV", log_frame.to_csv(index=False).encode("utf-8"), "retailpulse_audit_logs.csv", "text/csv")
 
 st.markdown("---")

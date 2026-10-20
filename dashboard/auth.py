@@ -258,7 +258,7 @@ def require_login():
 
             submitted = st.form_submit_button(
                 "Sign In",
-                use_container_width=True,
+                width="stretch",
             )
 
         if submitted:
@@ -314,7 +314,7 @@ def require_login():
 
             register_submitted = st.form_submit_button(
                 "Create Account",
-                use_container_width=True,
+                width="stretch",
             )
 
         if register_submitted:
