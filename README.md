@@ -4,20 +4,41 @@ RetailPulse is a retail analytics project that helps businesses analyze sales, c
 
 ## Features
 
-- Sales and revenue analytics
-- Customer segmentation and RFM analysis
-- Demand forecasting visualizations
-- Inventory analytics
-- Interactive Streamlit dashboard
-- Docker deployment
+- 📊 **Sales & Revenue Analytics** — Analyze sales performance, revenue trends, and business KPIs.
+- 👥 **Customer Segmentation** — Group customers based on purchasing behavior and value.
+- 🎯 **RFM Analysis** — Segment customers using Recency, Frequency, and Monetary metrics.
+- 📈 **Demand Forecasting** — Visualize historical sales patterns and forecast future demand.
+- 📦 **Inventory Analytics** — Monitor inventory levels, stock availability, and inventory performance.
+- 🛍️ **Product & SKU Analytics** — Explore product-level performance and identify sales trends.
+- 🏬 **Store Performance Analysis** — Compare sales and performance across retail locations.
+- 🏷️ **Promotion & Discount Analysis** — Examine promotional activity, discounts, and their relationship with sales.
+- 📱 **Interactive Streamlit Dashboard** — Explore analytics and visualizations through an interactive user interface.
+- 📉 **Data Visualization with Plotly** — Present business insights using interactive charts and graphs.
+- 🔐 **User Authentication** — Provide secure account registration and login.
+- 🛡️ **Role-Based Access Control (RBAC)** — Restrict dashboard features according to user roles.
+- 📝 **Audit Logging** — Track relevant user and administrative activities.
+- 🗄️ **Database Integration** — Store and manage application data using database technologies.
+- 🧹 **Data Quality & Anomaly Analysis** — Explore clean and contaminated retail datasets to investigate data quality issues.
+- 🐳 **Docker Containerization** — Package the application and its dependencies into a container.
+- ☁️ **Cloud Deployment** — Deploy and access the application online using Render.
+- 🔗 **Version Control with Git & GitHub** — Track code changes and maintain the project repository.
+- 📂 **Large Dataset Management** — Host large retail datasets separately from the main source-code repository.
 
-## Technology Stack
 
-- Python
-- Pandas and NumPy
-- Streamlit and Plotly
-- Docker
-- Git and GitHub
+### Technologies Used
+
+- **Programming Language:** Python
+- **Data Analysis & Processing:** Pandas, NumPy
+- **Machine Learning & Predictive Analytics:** Scikit-learn, Prophet, LSTM
+- **Dashboard & Data Visualization:** Streamlit, Plotly
+- **Database & ORM:** PostgreSQL, SQLite, SQLAlchemy
+- **Authentication & Security:** Argon2, Authlib, Role-Based Access Control (RBAC)
+- **Containerization:** Docker
+- **Deployment & Hosting:** Render
+- **Version Control & Collaboration:** Git, GitHub
+- **Dataset Hosting:** Hugging Face Datasets
+- **Development Environment:** Fedora Linux, Visual Studio Code, Jupyter Notebook
+- **Python Environment & Dependency Management:** Python Virtual Environments (venv), pip
 
 ## Relationships
 
