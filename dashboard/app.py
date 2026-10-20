@@ -11,6 +11,7 @@ from auth import (
     User,
     engine,
     initialize_database,
+    bootstrap_first_admin,
     require_login,
     logout,
 )
@@ -69,6 +70,7 @@ st.markdown(
 # Database / login
 # -----------------------------------------------------------------------------
 initialize_database()
+bootstrap_first_admin()
 
 # Reuse an existing audit_logs table if another module has already registered it.
 # Defining a second ORM class for the same table can trigger InvalidRequestError.
